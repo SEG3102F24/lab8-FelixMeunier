@@ -19,13 +19,22 @@ query {
 `;
 
 const ADD_EMPLOYEE = gql`
-mutation addEmployee($name: String!,
+mutation addEmployee(
+  $name: String!,
   $dateOfBirth: String!,
   $city: String!,
   $salary: Float!,
-  $gender: String!,
-  $email: String!) {
-  newEmployee(createEmployeeInput: {name: $name, dateOfBirth: $dateOfBirth, city: $city, salary: $salary, gender: $gender, email: $email}) {
+  $gender: String,
+  $email: String
+) {
+  newEmployee(
+    name: $name,
+    dateOfBirth: $dateOfBirth,
+    city: $city,
+    salary: $salary,
+    gender: $gender,
+    email: $email
+  ) {
     id
     name
     dateOfBirth
@@ -36,6 +45,7 @@ mutation addEmployee($name: String!,
   }
 }
 `;
+
 
 @Injectable({
   providedIn: 'root'
